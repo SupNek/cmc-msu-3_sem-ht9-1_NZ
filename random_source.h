@@ -1,4 +1,4 @@
-typedf struct RandomSource RandomSource;
+typedef struct RandomSource RandomSource;
 
 typedef struct RandomSourceOperations {
     RandomSource * (*destroy)(RandomSource *src);

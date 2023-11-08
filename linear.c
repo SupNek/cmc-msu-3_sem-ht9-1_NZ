@@ -10,26 +10,27 @@ enum
     RADIX = 10,
     A = 1103515245,
     C = 12345,
-    M = 1 << 31,
+    M = 1U << 31,
 };
 
 double
 next_lin(RandomSource *src)
 {
-    src->base = (src->base*A + C) % M;
-    return ((double) src->base) / (1 << 31);
+    src->base = (src->base * A + C) % M;
+    return ((double) src->base) / (1ULL << 31);
 }
 
 RandomSource *
 destroy_lin(RandomSource *src)
 {
-    free(src->op);
+    free(src->opt);
     free(src);
     return NULL;
 }
 
 RandomSource *
-random_linear_factory(const char *params) {
+random_linear_factory(const char *params)
+{
     char *eptr = NULL;
     errno = 0;
     long long lval = strtoll(params, &eptr, RADIX);

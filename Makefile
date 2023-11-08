@@ -1,11 +1,7 @@
-random.o:
-	$(CC) -c random.c
-
-linear.o:
-	$(CC) -c linear.c
-
-printrandom.o:
-	$(CC) -c printrandom.c
-
 all: printrandom
-	$(CC) $(CFLAGS) -rdynamic printrandom.o random.o linear.o random_source.h -o ^@ $(LDFLAGS) $(LD)
+
+printrandom: main.c random.o linear.o random_source.h
+	$(CC) $(CFLAGS) -g -rdynamic -o $@ $^ -ldl $(LDFLAGS)
+
+clean:
+	rm -rf *.o
