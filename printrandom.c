@@ -35,7 +35,7 @@ main(int argc, char *argv[])
     }
     void *handle = dlopen(NULL, RTLD_LAZY);
     if (!handle) {
-        fprintf(stderr, "Empty handle\n");
+        fprintf(stderr, "In printrandom.c: Empty handle\n");
         return 1;
     }
     if (!strncmp(argv[1], "linear", sizeof("linear"))) {
@@ -54,7 +54,6 @@ main(int argc, char *argv[])
         fprintf(stderr, "In printrandom.c: Wrong random generator name\n");
         return WR_GNAME;
     }
-
     num_gen = (((RandomSource * (*) (const char *) ) buf)(argv[3]));
     for (int i = 0; i < lval; ++i) {
         printf("%.10g\n", num_gen->opt->next(num_gen));

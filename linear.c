@@ -38,8 +38,8 @@ random_linear_factory(const char *params)
         fprintf(stderr, "In linear.c: Wrong seed!\n");
         exit(WR_SEED);
     }
-    RandomSource *new = calloc(sizeof(*new), 1);
-    RandomSourceOperations *op = calloc(sizeof(*op), 1);
+    RandomSource *new = calloc(1, sizeof(*new));
+    RandomSourceOperations *op = calloc(1, sizeof(*op));
     if (!new || !op) {
         fprintf(stderr, "In linear.c: error with memory allocation\n");
         exit(WR_MEM_ALLOC);
