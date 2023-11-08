@@ -42,7 +42,7 @@ random_random_factory(const char *params)
     RandomSource *new = calloc(1, sizeof(*new));
     RandomSourceOperations *op = calloc(1, sizeof(*op));
     if (!new || !op) {
-        fprintf(stderr, "In random.c: error with memory allocation\n");
+        fprintf(stderr, "In random.c: Error with memory allocation\n");
         exit(WR_MEM_ALLOC);
     }
     int fd = open("/dev/urandom", O_RDONLY);
